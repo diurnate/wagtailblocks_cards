@@ -1,16 +1,8 @@
 from django import forms
 from django.apps import apps
 from django.template.loader import render_to_string
-
-try:
-    from django.templatetags.static import static
-except ImportError:  # fallback for Django <3.0
-    from django.contrib.staticfiles.templatetags.staticfiles import static
-
-try:
-    from wagtail.core.blocks import ListBlock
-except ImportError:  # fallback for Wagtail <2.0
-    from wagtail.wagtailcore.blocks import ListBlock
+from django.templatetags.static import static
+from wagtail.core.blocks import ListBlock
 
 
 class CardsBlock(ListBlock):
