@@ -1,7 +1,11 @@
 from django import forms
 from django.apps import apps
 from django.template.loader import render_to_string
-from django.contrib.staticfiles.templatetags.staticfiles import static
+
+try:
+    from django.templatetags.static import static
+except ImportError:  # fallback for Django <3.0
+    from django.contrib.staticfiles.templatetags.staticfiles import static
 
 try:
     from wagtail.core.blocks import ListBlock
